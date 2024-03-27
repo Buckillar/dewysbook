@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DewysBook Management</title>
+    <link rel="stylesheet" href="dewys.css" />
+    <script src="dewys.js"></script>
+  </head>
+  <body>
+    <h2>Dewys Book Management System</h2>
+
+    <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'addBook')">Add New Book</button>
+      <button class="tablinks" onclick="openTab(event, 'editBook')">Edit Book</button>
+      <button class="tablinks" onclick="openTab(event, 'deleteBook')">Delete Book</button>
+      <button class="tablinks" onclick="openTab(event, 'searchBook')">Search Catalog</button>
+      <button class="tablinks" onclick="openTab(event, 'settings')">Settings</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="addBook" class="tabcontent">
+      <h3>Adding a book</h3>
+      <p>Enter all details and then click add book</p>
+      <input type="text" id="bookId" placeholder="Book ID" />
+      <input type="text" id="title" placeholder="Title" />
+      <input type="text" id="author" placeholder="Author" />
+      <input type="text" id="year" placeholder="Year" />
+      <button onclick="addBook()">Add Book</button>
+    </div>
+
+    <div id="editBook" class="tabcontent">
+      <h3>Edit Book</h3>
+      <p>
+        Input Correct Book ID and new information you want to replace, any infomation you wish to
+        keep the same ensure is entered as required
+      </p>
+      <input type="text" id="edBookId" placeholder="Book ID" />
+      <input type="text" id="edTitle" placeholder="Title" />
+      <input type="text" id="edAuthor" placeholder="Author" />
+      <input type="text" id="edYear" placeholder="Year" />
+      <button onclick="editBook()">Edit Book</button>
+    </div>
+
+    <div id="deleteBook" class="tabcontent">
+      <h3>Delete Book</h3>
+      <p>Enter Book ID and click delete</p>
+      <input type="text" id="delBookId" placeholder="Book ID" />
+      <button onclick="deleteBook()">Delete Book</button>
+    </div>
+
+    <div id="settings" class="tabcontent">
+      <h3>Settings</h3>
+      <p>Change number of books on page</p>
+      <input type="number" id="numberC" min="0" max="20" />
+      <button onclick="changeNumber()">Change Number</button>
+    </div>
+
+    <div id="searchBook" class="tabcontent">
+      <h3>Search for Exact Book</h3>
+      <p>Enter Book ID and click Search</p>
+      <input type="text" id="seBookId" placeholder="Book ID" />
+      <button onclick="searchBook()">Search Book</button>
+      <button onclick="getAllBooks()">View All Books</button>
+    </div>
+    <!--Table and Pagination!-->
+    <div class="container">
+      <table id="bookTable">
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Year</th>
+        </tr>
+      </table>
+
+      <div id="pagination">
+        <button class="prevBtn" onclick="previousPage()">Previous</button>
+        <span id="pageIndicator">Page 1</span>
+        <button class="nextBtn" onclick="nextPage()">Next</button>
+      </div>
+    </div>
+  </body>
+</html>
