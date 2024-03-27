@@ -17,7 +17,10 @@ async function addBook() {
   var title = document.getElementById("title").value;
   var author = document.getElementById("author").value;
   var year = document.getElementById("year").value;
-
+  if (bookId.trim() === '' || title.trim() === '' || author.trim() === '' || year.trim() === '') {
+    alert("Please fill in all fields.");
+    return;
+  }
   try {
     const response = await fetch("http://localhost:8080/dewysbook", {
       method: "POST",
@@ -85,7 +88,10 @@ function searchBook() {
 
 async function deleteBook() {
   var bookId = document.getElementById("delBookId").value;
-
+  if (bookId.trim() === '') {
+    alert("Please fill in book ID.");
+    return;
+  }
   try {
     const response = await fetch("http://localhost:8080/dewysbook/" + bookId, {
       method: "DELETE",
@@ -104,7 +110,10 @@ async function editBook() {
   var title = document.getElementById("edTitle").value;
   var author = document.getElementById("edAuthor").value;
   var year = document.getElementById("edYear").value;
-
+  if (bookId.trim() === '' || title.trim() === '' || author.trim() === '' || year.trim() === '') {
+    alert("Please fill in all fields.");
+    return;
+  }
   try {
     const response = await fetch("http://localhost:8080/dewysbook/" + bookId, {
       method: "PUT",
